@@ -1,9 +1,6 @@
-import { createHelia } from "helia";
-import { dagJson } from "@helia/dag-json";
-
 async function run() {
-  const helia = await createHelia();
-  const ipfs = dagJson(helia);
+  const { create } = await import("ipfs-http-client");
+  const ipfs = await create();
 
   // we added three attributes, add as many as you want!
   const metadata = {
